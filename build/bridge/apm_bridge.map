@@ -1,0 +1,7 @@
+/* Linux の libapm.so から外に見せる名前。窓口の関数（apm_ で始まる C の名前）だけにする。 */
+{
+	global:
+		apm_*;
+	local:
+		*;
+};

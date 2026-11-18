@@ -1,0 +1,23 @@
+# APM のテスト（Windows だけ）。tests-common.txt に足す。
+# ログのテストは、スレッドの部品がネットワークの部品まで要るので入れない
+
+# AEC3：処理の流れをまとめる部分（block_processor）のテストと、そのテストが使うモック
+modules/audio_processing/aec3/block_processor_unittest.cc
+modules/audio_processing/aec3/mock/mock_render_delay_buffer.cc
+
+# スレッドを使うもの：イベント、トレースの記録、スレッド、スレッドごとの譲り方
+rtc_base/event_tracer_unittest.cc
+rtc_base/event_unittest.cc
+rtc_base/platform_thread_unittest.cc
+rtc_base/synchronization/yield_policy_unittest.cc
+
+# テストの補助：音声データを探す（Google の版）
+test/testsupport/file_utils_override.cc
+
+# テストの補助：文字列から数への変換
+rtc_base/string_to_number.cc
+
+# テストの補助：spl_init.c が指す信号処理の C の版。Windows のリンカーは呼ばれない所の参照も探すので要る
+common_audio/signal_processing/cross_correlation.c
+common_audio/signal_processing/downsample_fast.c
+common_audio/signal_processing/vector_scaling_operations.c

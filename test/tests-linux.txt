@@ -1,0 +1,19 @@
+# APM のテスト（Linux だけ）。tests-common.txt に足す。
+# AEC3 の block_processor_unittest.cc は、使うモック（aec3/mock/mock_render_delay_buffer.cc）が参照を返す所で値を返していて、gcc 14 の標準ライブラリが止めるので入れない
+
+# スレッドを使うもの：イベント、トレースの記録、スレッド、スレッドごとの譲り方、タスクキュー（Windows 以外の版）、ログ
+rtc_base/event_tracer_unittest.cc
+rtc_base/event_unittest.cc
+rtc_base/logging_unittest.cc
+rtc_base/platform_thread_unittest.cc
+rtc_base/synchronization/yield_policy_unittest.cc
+rtc_base/task_queue_stdlib_unittest.cc
+
+# テストの補助：音声データを探す（Google の版）
+test/testsupport/file_utils_override.cc
+
+# テストの補助：タスクキューの共通のテスト、スレッド（タスクキューとログのテストが使う）、時間の文字列
+api/task_queue/task_queue_test.cc
+api/units/time_delta.cc
+rtc_base/null_socket_server.cc
+rtc_base/thread.cc

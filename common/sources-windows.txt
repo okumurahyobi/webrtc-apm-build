@@ -1,0 +1,26 @@
+# APM のソース（Windows だけ）。sources-common.txt に足す。
+
+# タスクキュー（Windows の版）
+api/task_queue/default_task_queue_factory_win.cc
+rtc_base/task_queue_win.cc
+
+# x86 の速い版（SSE、AVX2）。CPU を調べて、使えるときだけ呼ばれる
+common_audio/resampler/sinc_resampler_avx2.cc
+common_audio/resampler/sinc_resampler_sse.cc
+common_audio/third_party/ooura/fft_size_128/ooura_fft_sse2.cc
+modules/audio_processing/aec3/adaptive_fir_filter_avx2.cc
+modules/audio_processing/aec3/adaptive_fir_filter_erl_avx2.cc
+modules/audio_processing/aec3/fft_data_avx2.cc
+modules/audio_processing/aec3/matched_filter_avx2.cc
+modules/audio_processing/aec3/vector_math_avx2.cc
+modules/audio_processing/agc2/rnn_vad/vector_math_avx2.cc
+
+# CPU が SSE や AVX2 を使えるかを調べる
+rtc_base/cpu_info.cc
+
+# clang-cl は __GNUC__ を付けないので、spl_inl.h が先頭の 0 の数を表で数える版になり、その表が要る
+common_audio/signal_processing/spl_inl.c
+
+# Windows のリンカー（lld-link）は、呼ばれない関数の中の参照も探すので要るもの
+rtc_base/string_encode.cc
+rtc_base/system/file_wrapper.cc

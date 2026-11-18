@@ -1,0 +1,4 @@
+# APM のソース（Windows の Debug だけ）。sources-common.txt と sources-windows.txt に足す。
+
+# RTC_DCHECK が有効なときだけ参照される
+rtc_base/synchronization/sequence_checker_internal.cc

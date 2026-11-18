@@ -1,0 +1,5 @@
+/src/
+/common/generated/
+/build/out/
+/test/out/
+/common/__pycache__/

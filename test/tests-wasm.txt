@@ -1,0 +1,6 @@
+# APM のテスト（wasm だけ）。tests-common.txt に足す。
+# スレッドを使うテスト（イベント、トレースの記録、スレッド、スレッドごとの譲り方、タスクキュー、ログ）は、wasm にスレッドがないので入れない。音声データは test/override/file_utils_override.cc で探す
+
+# AEC3：処理の流れをまとめる部分（block_processor）のテストと、そのテストが使うモック
+modules/audio_processing/aec3/block_processor_unittest.cc
+modules/audio_processing/aec3/mock/mock_render_delay_buffer.cc

@@ -1,0 +1,181 @@
+# APM のテスト（Linux、wasm、Windows で共通）。src/ からの相対パス。
+
+# api：APM を作る入口
+api/audio/audio_processing_api_unittest.cc
+api/audio/builtin_audio_processing_builder_unittest.cc
+
+# APM 本体：帯域の分割、音のバッファなど
+modules/audio_processing/audio_buffer_unittest.cc
+modules/audio_processing/post_filter_unittest.cc
+modules/audio_processing/rms_level_unittest.cc
+modules/audio_processing/splitting_filter_unittest.cc
+modules/audio_processing/utility/cascaded_biquad_filter_unittest.cc
+modules/audio_processing/utility/pffft_wrapper_unittest.cc
+
+# HPF：低い音を切る
+modules/audio_processing/high_pass_filter_unittest.cc
+
+# AEC3：エコー除去
+modules/audio_processing/aec3/adaptive_fir_filter_unittest.cc
+modules/audio_processing/aec3/adaptive_fir_filter_erl_unittest.cc
+modules/audio_processing/aec3/aec3_fft_unittest.cc
+modules/audio_processing/aec3/aec_state_unittest.cc
+modules/audio_processing/aec3/alignment_mixer_unittest.cc
+modules/audio_processing/aec3/api_call_jitter_metrics_unittest.cc
+modules/audio_processing/aec3/block_delay_buffer_unittest.cc
+modules/audio_processing/aec3/block_framer_unittest.cc
+modules/audio_processing/aec3/block_processor_metrics_unittest.cc
+modules/audio_processing/aec3/clockdrift_detector_unittest.cc
+modules/audio_processing/aec3/coarse_filter_update_gain_unittest.cc
+modules/audio_processing/aec3/comfort_noise_generator_unittest.cc
+modules/audio_processing/aec3/config_selector_unittest.cc
+modules/audio_processing/aec3/decimator_unittest.cc
+modules/audio_processing/aec3/echo_canceller3_unittest.cc
+modules/audio_processing/aec3/echo_path_delay_estimator_unittest.cc
+modules/audio_processing/aec3/echo_path_variability_unittest.cc
+modules/audio_processing/aec3/echo_remover_unittest.cc
+modules/audio_processing/aec3/echo_remover_metrics_unittest.cc
+modules/audio_processing/aec3/erl_estimator_unittest.cc
+modules/audio_processing/aec3/erle_estimator_unittest.cc
+modules/audio_processing/aec3/filter_analyzer_unittest.cc
+modules/audio_processing/aec3/frame_blocker_unittest.cc
+modules/audio_processing/aec3/matched_filter_unittest.cc
+modules/audio_processing/aec3/matched_filter_lag_aggregator_unittest.cc
+modules/audio_processing/aec3/moving_average_spectrum_unittest.cc
+modules/audio_processing/aec3/multi_channel_content_detector_unittest.cc
+modules/audio_processing/aec3/refined_filter_update_gain_unittest.cc
+modules/audio_processing/aec3/render_buffer_unittest.cc
+modules/audio_processing/aec3/render_delay_buffer_unittest.cc
+modules/audio_processing/aec3/render_delay_controller_unittest.cc
+modules/audio_processing/aec3/render_delay_controller_metrics_unittest.cc
+modules/audio_processing/aec3/render_signal_analyzer_unittest.cc
+modules/audio_processing/aec3/residual_echo_estimator_unittest.cc
+modules/audio_processing/aec3/reverb_model_estimator_unittest.cc
+modules/audio_processing/aec3/signal_dependent_erle_estimator_unittest.cc
+modules/audio_processing/aec3/subtractor_unittest.cc
+modules/audio_processing/aec3/suppression_filter_unittest.cc
+modules/audio_processing/aec3/suppression_gain_unittest.cc
+
+# NS：ノイズ抑制
+modules/audio_processing/ns/noise_suppressor_unittest.cc
+
+# AGC1：音量の自動調整（古い世代）
+modules/audio_processing/agc/agc_manager_direct_unittest.cc
+modules/audio_processing/agc/loudness_histogram_unittest.cc
+
+# AGC1 が使う、声かどうかの判定
+modules/audio_processing/vad/gmm_unittest.cc
+modules/audio_processing/vad/pitch_based_vad_unittest.cc
+modules/audio_processing/vad/pitch_internal_unittest.cc
+modules/audio_processing/vad/pole_zero_filter_unittest.cc
+modules/audio_processing/vad/standalone_vad_unittest.cc
+modules/audio_processing/vad/vad_audio_proc_unittest.cc
+modules/audio_processing/vad/vad_circular_buffer_unittest.cc
+modules/audio_processing/vad/voice_activity_detector_unittest.cc
+
+# AGC2：音量の自動調整（新しい世代）
+modules/audio_processing/agc2/adaptive_digital_gain_controller_unittest.cc
+modules/audio_processing/agc2/biquad_filter_unittest.cc
+modules/audio_processing/agc2/clipping_predictor_unittest.cc
+modules/audio_processing/agc2/clipping_predictor_level_buffer_unittest.cc
+modules/audio_processing/agc2/fixed_digital_level_estimator_unittest.cc
+modules/audio_processing/agc2/gain_applier_unittest.cc
+modules/audio_processing/agc2/input_volume_controller_unittest.cc
+modules/audio_processing/agc2/input_volume_stats_reporter_unittest.cc
+modules/audio_processing/agc2/interpolated_gain_curve_unittest.cc
+modules/audio_processing/agc2/limiter_unittest.cc
+modules/audio_processing/agc2/noise_level_estimator_unittest.cc
+modules/audio_processing/agc2/rnn_vad/auto_correlation_unittest.cc
+modules/audio_processing/agc2/rnn_vad/features_extraction_unittest.cc
+modules/audio_processing/agc2/rnn_vad/lp_residual_unittest.cc
+modules/audio_processing/agc2/rnn_vad/pitch_search_unittest.cc
+modules/audio_processing/agc2/rnn_vad/pitch_search_internal_unittest.cc
+modules/audio_processing/agc2/rnn_vad/rnn_unittest.cc
+modules/audio_processing/agc2/rnn_vad/rnn_fc_unittest.cc
+modules/audio_processing/agc2/rnn_vad/rnn_gru_unittest.cc
+modules/audio_processing/agc2/rnn_vad/spectral_features_unittest.cc
+modules/audio_processing/agc2/rnn_vad/spectral_features_internal_unittest.cc
+modules/audio_processing/agc2/saturation_protector_unittest.cc
+modules/audio_processing/agc2/saturation_protector_buffer_unittest.cc
+modules/audio_processing/agc2/speech_level_estimator_unittest.cc
+modules/audio_processing/agc2/vad_wrapper_unittest.cc
+modules/audio_processing/gain_controller2_unittest.cc
+
+# 処理の前後で音量の倍率をかける（capture_level_adjustment）
+modules/audio_processing/capture_levels_adjuster/audio_samples_scaler_unittest.cc
+modules/audio_processing/capture_levels_adjuster/capture_levels_adjuster_unittest.cc
+
+# 複数チャンネルをまとめる（pipeline）
+modules/audio_processing/capture_mixer/audio_content_analyzer_unittest.cc
+modules/audio_processing/capture_mixer/capture_mixer_unittest.cc
+modules/audio_processing/capture_mixer/channel_content_remixer_unittest.cc
+modules/audio_processing/capture_mixer/dc_levels_estimator_unittest.cc
+modules/audio_processing/capture_mixer/energy_estimator_unittest.cc
+modules/audio_processing/capture_mixer/remixing_logic_unittest.cc
+modules/audio_processing/capture_mixer/saturation_estimator_unittest.cc
+
+# エコーが残っている見込みを出す（SetEchoDetector）
+modules/audio_processing/echo_detector/circular_buffer_unittest.cc
+modules/audio_processing/echo_detector/mean_variance_estimator_unittest.cc
+modules/audio_processing/echo_detector/moving_max_unittest.cc
+modules/audio_processing/echo_detector/normalized_covariance_estimator_unittest.cc
+modules/audio_processing/residual_echo_detector_unittest.cc
+
+# common_audio：リサンプラー、信号処理、声かどうかの判定など、音の基本的な処理
+common_audio/audio_converter_unittest.cc
+common_audio/audio_util_unittest.cc
+common_audio/resampler/push_resampler_unittest.cc
+common_audio/resampler/push_sinc_resampler_unittest.cc
+common_audio/resampler/resampler_unittest.cc
+common_audio/resampler/sinc_resampler_unittest.cc
+common_audio/vad/vad_core_unittest.cc
+common_audio/vad/vad_filterbank_unittest.cc
+common_audio/vad/vad_gmm_unittest.cc
+common_audio/vad/vad_sp_unittest.cc
+common_audio/vad/vad_unittest.cc
+
+# 土台：チェック、時刻、文字列など
+rtc_base/checks_unittest.cc
+rtc_base/denormal_disabler_unittest.cc
+rtc_base/experiments/field_trial_parser_unittest.cc
+rtc_base/memory/aligned_malloc_unittest.cc
+rtc_base/string_utils_unittest.cc
+rtc_base/strings/string_builder_unittest.cc
+system_wrappers/source/clock_unittest.cc
+system_wrappers/source/metrics_unittest.cc
+
+# テストの補助：テスト用の環境とフィールドトライアル、音声データを探す、乱数、abseil の文字列の部品
+api/field_trials.cc
+rtc_base/random.cc
+test/create_test_environment.cc
+test/create_test_field_trials_without_absl_flag.cc
+test/testsupport/file_utils.cc
+third_party/abseil-cpp/absl/strings/internal/stringify_sink.cc
+
+# テストの補助：音（信号を作る、ファイルを読む、バッファを比べる、時間を測る）
+common_audio/resampler/sinusoidal_linear_chirp_source.cc
+modules/audio_coding/neteq/tools/input_audio_file.cc
+modules/audio_processing/test/audio_buffer_tools.cc
+modules/audio_processing/test/bitexactness_tools.cc
+modules/audio_processing/test/echo_canceller_test_tools.cc
+modules/audio_processing/test/performance_timer.cc
+
+# テストの補助：AEC3 のモック
+modules/audio_processing/aec3/mock/mock_block_processor.cc
+modules/audio_processing/aec3/mock/mock_echo_remover.cc
+modules/audio_processing/aec3/mock/mock_render_delay_controller.cc
+
+# テストの補助：AGC2
+modules/audio_processing/agc2/agc2_testing_common.cc
+modules/audio_processing/agc2/compute_interpolated_gain_curve.cc
+modules/audio_processing/agc2/limiter_db_gain_curve.cc
+modules/audio_processing/agc2/rnn_vad/test_utils.cc
+modules/audio_processing/agc2/vector_float_frame.cc
+
+# テストの補助：common_audio の VAD のテストが使う信号処理
+common_audio/signal_processing/min_max_operations.c
+common_audio/signal_processing/spl_init.c
+
+# 入れていないテスト（どの環境でも）
+# modules/audio_processing/audio_processing_impl_unittest.cc：テストの補助が TensorFlow Lite（取ってきていない）を要る
+# rtc_base/time_utils_unittest.cc：CreateRandomId() が暗号のライブラリ（BoringSSL）を要る
